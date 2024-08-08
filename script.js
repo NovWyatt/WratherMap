@@ -2,8 +2,28 @@ const apiKey = "2a4080a81999421dc84237ba2c0e28e3";
 const getWeatherBtn = document.getElementById("getWeatherBtn");
 const cityInput = document.getElementById("cityInput");
 const weatherInfo = document.getElementById("weatherInfo");
+const currentTimeElement = document.getElementById("currentTime");
 const ctx = document.getElementById("temperatureChart").getContext("2d");
-let temperatureChart; // Đặt một biến để giữ biểu đồ hiện tại
+let temperatureChart; // Variable to hold the current chart
+
+// Update the current time every second
+function updateTime() {
+  const now = new Date();
+  const options = {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  };
+  const timeString = now.toLocaleTimeString("en-GB", options);
+  currentTimeElement.textContent = `Current Time: ${timeString}`;
+}
+
+// Call updateTime every second
+setInterval(updateTime, 1000);
+
+// Initial call to set the time immediately
+updateTime();
 
 getWeatherBtn.addEventListener("click", () => {
   const city = cityInput.value;
@@ -25,7 +45,7 @@ async function getWeather(city) {
     plotTemperatureChart(data);
   } catch (error) {
     weatherInfo.innerText =
-      "Thành Thật Xin Lỗi Ứng Dụng Chỉ Có Thể Tra Cứu Thành Phố: ";
+      "Sorry, the application only supports city queries.";
   }
 }
 
@@ -38,28 +58,28 @@ function displayWeatherInfo(data) {
   weatherInfo.innerHTML = `
         <h2>${city}, ${country}</h2>
         <p>${description}</p>
-        <p>Nhiệt độ: ${temperature} °C</p>
+        <p>Temperature: ${temperature} °C</p>
     `;
 }
 
 function plotTemperatureChart(data) {
   const temperature = data.main.temp;
-  const labels = ["Nhiệt độ hiện tại"];
+  const labels = ["Current Temperature"];
   const temperatures = [temperature];
 
-  // Hủy biểu đồ cũ nếu tồn tại
+  // Destroy the old chart if it exists
   if (temperatureChart) {
     temperatureChart.destroy();
   }
 
-  // Tạo biểu đồ mới
+  // Create a new chart
   temperatureChart = new Chart(ctx, {
     type: "bar",
     data: {
       labels: labels,
       datasets: [
         {
-          label: "Nhiệt độ (°C)",
+          label: "Temperature (°C)",
           data: temperatures,
           backgroundColor: "rgba(75, 192, 192, 0.2)",
           borderColor: "rgba(75, 192, 192, 1)",
