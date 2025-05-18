@@ -17,11 +17,3 @@ The Weather Dashboard is an application that provides weather forecasts using AP
 - **Temperature Chart:** Displays a temperature chart over time using Chart.js.
 - **Current Time:** Displays the current time from the user's machine.
 
-## Installation
-
-1. **Clone the Repository:**
-
-   ```bash
-   git clone https://github.com/your-username/weather-dashboard.git
-   cd weather-dashboard
-   ```
