@@ -1,11 +1,142 @@
+/* Dark theme for Weather Dashboard */
 body {
-  font-family: Arial, sans-serif;
-  background: #f8f9fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #121212;
+  color: #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .card {
-  background: white;
-  padding: 20px;
+  background: #1e1e1e;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  color: #bb86fc;
+  font-weight: 600;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(187, 134, 252, 0.3);
+}
+
+#currentTime {
+  color: #03dac6;
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: rgba(3, 218, 198, 0.1);
+  padding: 8px 15px;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 0 auto 1.5rem auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  background-color: #2d2d2d;
+  border: 1px solid #444;
+  color: #e0e0e0;
+  border-radius: 10px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  background-color: #333;
+  border-color: #bb86fc;
+  color: #ffffff;
+  box-shadow: 0 0 0 0.2rem rgba(187, 134, 252, 0.25);
+}
+
+.form-control::placeholder {
+  color: #888;
+}
+
+.btn-primary {
+  background-color: #bb86fc;
+  border-color: #bb86fc;
+  color: #000;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(187, 134, 252, 0.25);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background-color: #a370db;
+  border-color: #a370db;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(187, 134, 252, 0.35);
+}
+
+#weatherInfo {
+  background-color: rgba(3, 218, 198, 0.1);
   border-radius: 15px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+}
+
+#weatherInfo h2 {
+  color: #cf6679;
+  font-size: 1.7rem;
+  margin-bottom: 0.8rem;
+}
+
+#weatherInfo p {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+#weatherInfo p:last-child {
+  font-size: 1.4rem;
+  color: #03dac6;
+  font-weight: 500;
+}
+
+canvas#temperatureChart {
+  margin-top: 2rem;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  max-height: 250px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding-top: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  #currentTime {
+    font-size: 1rem;
+  }
+  
+  .card {
+    padding: 1.5rem !important;
+  }
 }
