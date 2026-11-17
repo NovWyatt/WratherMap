@@ -1,0 +1,12 @@
+// Weather Dashboard trên Cloudflare Workers (chỉ tệp tĩnh, trình duyệt gọi thẳng OpenWeatherMap).
+// Đăng: wrangler deploy   (lần đầu: wrangler login)
+{
+  "name": "weather-dashboard",
+  // Tài khoản giữ vùng wyattos.cyou; ghim để bản đăng không rơi vào tài khoản khác.
+  "account_id": "dd588185e95ac991ff97741e153bea63",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": "./public" },
+  "routes": [{ "pattern": "weather.wyattos.cyou", "custom_domain": true }],
+  "workers_dev": false,
+  "preview_urls": false
+}
